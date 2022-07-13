@@ -84,7 +84,7 @@ public class Get06 extends HerOkuAppBaseUrl {
         softAssert.assertEquals(json.getString("lastname"),"FINCH","lastname uyuşmadı");
 
 
-        //3) assertAll() methodu kullanılır. Aksi taktirde kod her zaman pass olur.
+        //3) assertAll() methodu kullanılır. Aksi taktirde kod her zaman pass olur. Yani Assert yapilmamis olur.
         softAssert.assertAll();
 
 
