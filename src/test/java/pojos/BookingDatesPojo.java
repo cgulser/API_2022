@@ -19,6 +19,7 @@ public class BookingDatesPojo {
 
     public BookingDatesPojo() {
     }
+
     //3) Getters ve Setters'larımızı oluşturuyoruz.
 
 

@@ -11,7 +11,7 @@ public class BookingPojo {
     private Integer totalprice;
     private Boolean depositpaid;
     private BookingDatesPojo bookingdates;
-    private String additinalneeds;
+    private String additionalneeds;
 
 
     //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
@@ -23,7 +23,7 @@ public class BookingPojo {
         this.totalprice = totalprice;
         this.depositpaid = depositpaid;
         this.bookingdates = bookingdates;
-        this.additinalneeds = additinalneeds;
+        this.additionalneeds = additinalneeds;
     }
 
     public BookingPojo() {
@@ -56,7 +56,7 @@ public class BookingPojo {
         this.totalprice = totalprice;
     }
 
-    public Boolean getDepositpaid() {
+    public Boolean isDepositpaid() {
         return depositpaid;
     }
 
@@ -72,12 +72,12 @@ public class BookingPojo {
         this.bookingdates = bookingdates;
     }
 
-    public String getAdditinalneeds() {
-        return additinalneeds;
+    public String getAdditionalneeds() {
+        return additionalneeds;
     }
 
-    public void setAdditinalneeds(String additinalneeds) {
-        this.additinalneeds = additinalneeds;
+    public void setAdditionalneeds(String additionalneeds) {
+        this.additionalneeds = additionalneeds;
     }
 
     //4) toString() methodumuzu oluşturuyoruz.
@@ -91,7 +91,7 @@ public class BookingPojo {
                 ", totalprice=" + totalprice +
                 ", depositpaid=" + depositpaid +
                 ", bookingdates=" + bookingdates +
-                ", additinalneeds='" + additinalneeds + '\'' +
+                ", additinalneeds='" + additionalneeds + '\'' +
                 '}';
     }
 }
