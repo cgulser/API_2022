@@ -4,12 +4,11 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingDatesPojo {
+    //1) Create private variables for every key
+        private String checkin;
+        private String checkout;
 
-    //1) Tüm keyler için private variable 'lar oluşturuyoruz.
-    private String checkin;
-    private String checkout;
-
-    //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
+    //2) Create constructor with all parameters, and without any parameters
 
 
     public BookingDatesPojo(String checkin, String checkout) {
@@ -20,7 +19,7 @@ public class BookingDatesPojo {
     public BookingDatesPojo() {
     }
 
-    //3) Getters ve Setters'larımızı oluşturuyoruz.
+    //3) Create getters and setters
 
 
     public String getCheckin() {
@@ -38,7 +37,7 @@ public class BookingDatesPojo {
     public void setCheckout(String checkout) {
         this.checkout = checkout;
     }
-    //4) toString() methodumuzu oluşturuyoruz.
+    //4) Create toString() method
 
 
     @Override

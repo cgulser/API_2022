@@ -5,6 +5,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DummyApiDataPojo {
 
+
     private String employee_name;
     private Integer employee_salary;
     private Integer employee_age;
@@ -14,12 +15,18 @@ public class DummyApiDataPojo {
     public DummyApiDataPojo() {
     }
 
-    public DummyApiDataPojo(String employee_name, Integer employee_salary, Integer employee_age, String profile_image) {
+    public DummyApiDataPojo(String employee_name, Integer employeeSalary, Integer employeeAge, String profileImage) {
+        super();
+
         this.employee_name = employee_name;
-        this.employee_salary = employee_salary;
-        this.employee_age = employee_age;
-        this.profile_image = profile_image;
+        this.employee_salary = employeeSalary;
+        this.employee_age = employeeAge;
+        this.profile_image = profileImage;
     }
+
+
+
+
 
     public String getEmployee_name() {
         return employee_name;
@@ -55,11 +62,12 @@ public class DummyApiDataPojo {
 
     @Override
     public String toString() {
-        return "DummyApiDataPojo{" +
-                "employee_name='" + employee_name + '\'' +
-                ", employee_salary=" + employee_salary +
-                ", employee_age=" + employee_age +
-                ", profile_image='" + profile_image + '\'' +
+        return "Data{" +
+
+                " employeeName='" + employee_name + '\'' +
+                ", employeeSalary=" + employee_salary +
+                ", employeeAge=" + employee_age +
+                ", profileImage='" + profile_image + '\'' +
                 '}';
     }
 }

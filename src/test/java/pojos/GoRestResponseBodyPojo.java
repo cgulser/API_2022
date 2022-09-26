@@ -5,24 +5,21 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GoRestResponseBodyPojo {
 
-    //1) Tüm keyler için private variable 'lar oluşturuyoruz.
+//    1) Create private variables for every key
     private Object meta;
     private GoRestDataPojo data;
 
-    //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
-
+//    2) Create constructor with all parameters, and without any parameters
 
     public GoRestResponseBodyPojo(Object meta, GoRestDataPojo data) {
         this.meta = meta;
         this.data = data;
-
     }
 
     public GoRestResponseBodyPojo() {
     }
 
-    //3) Getters ve Setters'larımızı oluşturuyoruz.
-
+//    3) Create getters and setters
 
     public Object getMeta() {
         return meta;
@@ -40,8 +37,8 @@ public class GoRestResponseBodyPojo {
         this.data = data;
     }
 
-    //4) toString() methodumuzu oluşturuyoruz.
 
+//    4) Create toString() method
 
     @Override
     public String toString() {

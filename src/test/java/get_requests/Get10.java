@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class Get10 extends GoRestBaseUrl {

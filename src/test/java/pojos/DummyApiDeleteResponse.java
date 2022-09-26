@@ -1,23 +1,20 @@
 package pojos;
 
-
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DummyApiResponseBodyPojo {
-
+public class DummyApiDeleteResponse {
     private String status;
-    private DummyApiDataPojo dataPojo;
+    private String data;
     private String message;
 
-    public DummyApiResponseBodyPojo() {
+    public DummyApiDeleteResponse(String status, String data, String message) {
+        this.status = status;
+        this.data = data;
+        this.message = message;
     }
 
-    public DummyApiResponseBodyPojo(String status, DummyApiDataPojo dataPojo, String message) {
-        super();
-        this.status = status;
-        this.dataPojo = dataPojo;
-        this.message = message;
+    public DummyApiDeleteResponse() {
     }
 
     public String getStatus() {
@@ -28,12 +25,12 @@ public class DummyApiResponseBodyPojo {
         this.status = status;
     }
 
-    public DummyApiDataPojo getData() {
-        return dataPojo;
+    public String getData() {
+        return data;
     }
 
-    public void setData(DummyApiDataPojo data) {
-        this.dataPojo = data;
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getMessage() {
@@ -46,9 +43,9 @@ public class DummyApiResponseBodyPojo {
 
     @Override
     public String toString() {
-        return "DummyApiResponseBodyPojo{" +
+        return "DummyApiDeleteResponse{" +
                 "status='" + status + '\'' +
-                ", data=" + dataPojo +
+                ", data='" + data + '\'' +
                 ", message='" + message + '\'' +
                 '}';
     }

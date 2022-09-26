@@ -4,15 +4,15 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GoRestDataPojo {
-    //1) Tüm keyler için private variable 'lar oluşturuyoruz.
-    private Integer id;
-    private String name;
-    private String email;
-    private String gender;
-    private String status;
 
-    //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
+//    1) Create private variables for every key
+      private Integer id;
+      private String name;
+      private String email;
+      private String gender;
+      private String status;
 
+//    2) Create constructor with all parameters, and without any parameters
 
     public GoRestDataPojo(Integer id, String name, String email, String gender, String status) {
         this.id = id;
@@ -24,8 +24,8 @@ public class GoRestDataPojo {
 
     public GoRestDataPojo() {
     }
-    //3) Getters ve Setters'larımızı oluşturuyoruz.
 
+//    3) Create getters and setters
 
     public Integer getId() {
         return id;
@@ -66,7 +66,9 @@ public class GoRestDataPojo {
     public void setStatus(String status) {
         this.status = status;
     }
-    //4) toString() methodumuzu oluşturuyoruz.
+
+
+//    4) Create toString() method
 
 
     @Override
@@ -80,3 +82,4 @@ public class GoRestDataPojo {
                 '}';
     }
 }
+

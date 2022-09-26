@@ -1,12 +1,12 @@
 package pojos;
 
-public class BookingResponseBodyPojo {
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
-    //1) Tüm keyler için private variable 'lar oluşturuyoruz.
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class BookingResponseBodyPojo {
     private Integer bookingid;
     private BookingPojo booking;
 
-    //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
     public BookingResponseBodyPojo(Integer bookingid, BookingPojo booking) {
         this.bookingid = bookingid;
         this.booking = booking;
@@ -14,9 +14,6 @@ public class BookingResponseBodyPojo {
 
     public BookingResponseBodyPojo() {
     }
-
-    //3) Getters ve Setters'larımızı oluşturuyoruz.
-
 
     public Integer getBookingid() {
         return bookingid;
@@ -33,9 +30,6 @@ public class BookingResponseBodyPojo {
     public void setBooking(BookingPojo booking) {
         this.booking = booking;
     }
-
-    //4) toString() methodumuzu oluşturuyoruz.
-
 
     @Override
     public String toString() {

@@ -13,9 +13,10 @@ public class JsonUtil {
         mapper = new ObjectMapper();
     }
 
-    //1. Method: Json Datasını Java Objesine çevirir.(De-Serialization)
+    //1. Method: This method will convert Json Data to Java Object (De-Serialization)
 
     public static <T> T convertJsonToJavaObject(String json, Class<T> cls){//Generic Method
+
         T javaResult = null;
 
         try {
@@ -25,13 +26,13 @@ public class JsonUtil {
         }
 
         return javaResult;
+
     }
 
 
-    //2. Method: Java Objesini Json Dataya  çevirir.(Serialization)
+    //2. Method: This method will convert Java Object to Json Data (Serialization)
 
     public static String convertJavaObjectToJson(Object obj){
-
         String jsonResult = null;
 
         try {
@@ -40,8 +41,7 @@ public class JsonUtil {
             e.printStackTrace();
         }
 
+
         return jsonResult;
     }
-
-
 }

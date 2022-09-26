@@ -7,18 +7,18 @@ import org.junit.Test;
 import pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.*;
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class Post03Pojo extends JsonPlaceHolderBaseUrl {
-     /*
+
+    /*
          Given
-            https://jsonplaceholder.typicode.com/todos
-            {
-            "userId": 55,
-            "title": "Tidy your room",
-            "completed": false
-            }
+            1) https://jsonplaceholder.typicode.com/todos
+            2)  {
+                "userId": 55,
+                "title": "Tidy your room",
+                "completed": false
+                }
         When
             I send POST Request to the Url
         Then
@@ -33,28 +33,25 @@ public class Post03Pojo extends JsonPlaceHolderBaseUrl {
      */
 
     @Test
-    public void postPojo01(){
+    public void post01(){
         //1. Step: Set the Url
-        spec.pathParam("first", "todos");
+        spec.pathParam("first","todos");
 
         //2. Step: Set the expected data
-        JsonPlaceHolderPojo requestBody = new JsonPlaceHolderPojo(55,"Tidy your room",false);
+        JsonPlaceHolderPojo payload = new JsonPlaceHolderPojo(55,"Tidy your room",false);
+        System.out.println("ExpectedData: "+payload);
 
-        //3. Step: Send POST Request and get the Response
-        Response response = given().spec(spec).contentType(ContentType.JSON).body(requestBody).when().post("/{first}");
+
+        //3. Step: Send Post Request and get the Response
+        Response response = given().spec(spec).contentType(ContentType.JSON).body(payload).when().post("/{first}");
         response.prettyPrint();
 
         //4. Step: Do Assertion
-        JsonPlaceHolderPojo actualBody = response.as(JsonPlaceHolderPojo.class);
-
-        assertEquals(requestBody.getUserId(),actualBody.getUserId());
-        assertEquals(requestBody.getTitle(),actualBody.getTitle());
-        assertEquals(requestBody.getCompleted(),actualBody.getCompleted());
-
-//        System.out.println(requestBody.toString());
-//        System.out.println(actualBody.toString());
-//        assertEquals(requestBody.toString(), actualBody.toString());
-
+        JsonPlaceHolderPojo actualData = response.as(JsonPlaceHolderPojo.class);
+        System.out.println("actualData: "+actualData);
+        assertEquals(payload.getUserId(),actualData.getUserId());
+        assertEquals(payload.getTitle(),actualData.getTitle());
+        assertEquals(payload.getCompleted(),actualData.getCompleted());
+        assertEquals(201,response.getStatusCode());
     }
-
 }

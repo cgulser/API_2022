@@ -1,24 +1,24 @@
 package pojos;
 
-
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JsonPlaceHolderPojo {
 
     /*
-    1) Tüm keyler için private variable 'lar oluşturuyoruz.
-    2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
-    3) Getters ve Setters'larımızı oluşturuyoruz.
-    4) toString() methodumuzu oluşturuyoruz.
+    1) Create private variables for every key
+    2) Create constructor with all parameters, and without any parameters
+    3) Create getters and setters
+    4) Create toString() method
      */
 
-    //1) Tüm keyler için private variable 'lar oluşturuyoruz.
+//    1) Create private variables for every key
     private Integer userId;
     private String title;
     private Boolean completed;
 
-    //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
+//    2) Create constructor with all parameters, and without any parameters
+
     public JsonPlaceHolderPojo(Integer userId, String title, Boolean completed) {
         this.userId = userId;
         this.title = title;
@@ -27,8 +27,8 @@ public class JsonPlaceHolderPojo {
 
     public JsonPlaceHolderPojo() {
     }
-    //3) Getters ve Setters'larımızı oluşturuyoruz.
 
+//    3) Create getters and setters
 
     public Integer getUserId() {
         return userId;
@@ -54,19 +54,23 @@ public class JsonPlaceHolderPojo {
         this.completed = completed;
     }
 
-    //4) toString() methodumuzu oluşturuyoruz.
-
+//    4) Create toString() method
 
     @Override
     public String toString() {
-        return "JsonPlaceHolderPojo{" +
+        return "JsonPlaceHolderPojo: {" +
                 "userId=" + userId +
                 ", title='" + title + '\'' +
                 ", completed=" + completed +
                 '}';
     }
+    /*
+    How do we handle different key-values in response body?
+    I use @JsonIgnoreProperties(ignoreUnknown = true) at the top of thePojo class.
+    It comes from "org.codehaus.jackson.annotate.JsonIgnoreProperties"
+     */
 
 
-    //Farklı key-value ikililerin uyuşmazlığını @JsonIgnoreProperties(ignoreUnknown = true)
-    // anotation'ını Pojo Class'ımızın başına yazarak çözebiliriz.
+
+
 }

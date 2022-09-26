@@ -7,15 +7,17 @@ import pojos.DummyApiDataPojo;
 import pojos.DummyApiResponseBodyPojo;
 import utils.JsonUtil;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
+
 public class Get17 extends DummyRestApiBaseUrl {
-     /*
+
+          /*
        URL: https://dummy.restapiexample.com/api/v1/employee/1
        HTTP Request Method: GET Request
        Test Case: Type by using Gherkin Language
-       Assert:     i) Status code is 200
+       Assert: 	i) Status code is 200
                ii) "employee_name" is "Tiger Nixon"
               iii) "employee_salary" is 320800
                iv)  "employee_age" is 61
@@ -25,9 +27,9 @@ public class Get17 extends DummyRestApiBaseUrl {
 
     /*
     Given
-        URL: https://dummy.restapiexample.com/api/v1/employee/1
+        https://dummy.restapiexample.com/api/v1/employee/1
     When
-        User sends GET Request
+        User sends Get Request
     Then
         Status code is 200
     And
@@ -44,13 +46,17 @@ public class Get17 extends DummyRestApiBaseUrl {
      */
     @Test
     public void get01(){
-        spec.pathParams("first","employee", "second",1);
-        DummyApiDataPojo dataPojo = new DummyApiDataPojo( "Tiger Nixon", 320800, 61, "");
-        DummyApiResponseBodyPojo expectedData = new DummyApiResponseBodyPojo("success", dataPojo, "Successfully! Record has been fetched.");
+        //1. Step: Set the Url
+        spec.pathParams("first","employee","second",1);
+
+        //2. Step: Set the expected data
+        DummyApiDataPojo dataPojo = new DummyApiDataPojo("Tiger Nixon", 320800, 61,"");
+        DummyApiResponseBodyPojo expectedData = new DummyApiResponseBodyPojo("success",dataPojo,"Successfully! Record has been fetched.");
+        System.out.println("expectedData = " + expectedData);
+
+        //3. Step: Send the request and get the Response
         Response response = given().spec(spec).when().get("/{first}/{second}");
         response.prettyPrint();
-
-        response.then().assertThat().statusCode(200);
 
         DummyApiResponseBodyPojo actualData = JsonUtil.convertJsonToJavaObject(response.asString(), DummyApiResponseBodyPojo.class);
         System.out.println(actualData);
@@ -64,4 +70,5 @@ public class Get17 extends DummyRestApiBaseUrl {
         assertEquals(expectedData.getData().getProfile_image(), actualData.getData().getProfile_image());
 
     }
+
 }

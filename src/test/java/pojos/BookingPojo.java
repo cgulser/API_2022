@@ -5,32 +5,30 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookingPojo {
 
-    //1) Tüm keyler için private variable 'lar oluşturuyoruz.
-    private String firstname;
-    private String lastname;
-    private Integer totalprice;
-    private Boolean depositpaid;
-    private BookingDatesPojo bookingdates;
-    private String additionalneeds;
+//    1) Create private variables for every key
+      private String firstname;
+      private String lastname;
+      private Integer totalprice;
+      private Boolean depositpaid;
+      private BookingDatesPojo bookingdates;
+      private String additionalneeds;
 
+//    2) Create constructor with all parameters, and without any parameters
 
-    //2) Tüm parametrelerle ve parametresiz constructor'larımızı oluşturuyoruz.
-
-
-    public BookingPojo(String firstname, String lastname, Integer totalprice, Boolean depositpaid, BookingDatesPojo bookingdates, String additinalneeds) {
+      public BookingPojo(String firstname, String lastname, Integer totalprice, Boolean depositpaid, BookingDatesPojo bookingdates, String additionalneeds) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.totalprice = totalprice;
         this.depositpaid = depositpaid;
         this.bookingdates = bookingdates;
-        this.additionalneeds = additinalneeds;
-    }
+        this.additionalneeds = additionalneeds;
+      }
 
     public BookingPojo() {
-
     }
-    //3) Getters ve Setters'larımızı oluşturuyoruz.
 
+
+    //3) Create getters and setters
 
     public String getFirstname() {
         return firstname;
@@ -56,7 +54,7 @@ public class BookingPojo {
         this.totalprice = totalprice;
     }
 
-    public Boolean isDepositpaid() {
+    public Boolean getDepositpaid() {
         return depositpaid;
     }
 
@@ -80,7 +78,8 @@ public class BookingPojo {
         this.additionalneeds = additionalneeds;
     }
 
-    //4) toString() methodumuzu oluşturuyoruz.
+
+    //4) Create toString() method
 
 
     @Override
@@ -91,7 +90,7 @@ public class BookingPojo {
                 ", totalprice=" + totalprice +
                 ", depositpaid=" + depositpaid +
                 ", bookingdates=" + bookingdates +
-                ", additinalneeds='" + additionalneeds + '\'' +
+                ", additionalneeds='" + additionalneeds + '\'' +
                 '}';
     }
 }

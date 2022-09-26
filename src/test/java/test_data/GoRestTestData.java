@@ -5,26 +5,21 @@ import java.util.Map;
 
 public class GoRestTestData {
 
-    public Map<String, String > dataKeyMap(String name, String email, String gender, String status){
-
+    public Map<String, String> dataKeyMap(String name, String email,String gender, String status){
         Map<String, String > dataKeyMap = new HashMap<>();
         dataKeyMap.put("name",name);
         dataKeyMap.put("email",email);
         dataKeyMap.put("gender",gender);
         dataKeyMap.put("status",status);
-
         return dataKeyMap;
-
     }
 
-    public Map<String ,Object> expectedDataMap(Object meta, Map<String,String> data){
+    public Map<String, Object> expectedDataMap(Object meta, Map data ){
+        Map<String, Object> expectedDataMap = new HashMap<>();
+        expectedDataMap.put("meta",meta);
+        expectedDataMap.put("data",data);
 
-        Map<String,Object> expectedData = new HashMap<>();
-        expectedData.put("meta", meta);
-        expectedData.put("data",data);
-
-        return expectedData;
+        return expectedDataMap;
     }
-
 
 }
